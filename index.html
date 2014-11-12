@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <title>Testing 2</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <style type="text/css">
+        button {
+            color:forestgreen; 
+            background-color:azure;
+            border: 5px groove magenta;
+            font-family:'Comic Sans MS';
+        }
+        body {
+            background-color:darkturquoise;
+        }
+        @media (max-width: 600px) {
+            body {
+                background-color: lightgoldenrodyellow;
+            }
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="firstName" placeholder="First Name" />
+    <button id="btnClick">Click Me!</button>
+    <br />
+    <img id="happy" src="happy.jpg" style="display: none;" />
+    <img id="good" src="good.jpg" style="display: none;" />
+    <img id="elephant" src="depressed.jpg" style="display: none;" />
+    <img id="platypus" src="awesome.jpg" style="display: none;" />
+    <script type="text/javascript">
+        function sayHi(name) {
+            var message = "Hi, " + name + ", how are you?";
+            var feeling = prompt(message);
+            var message2;
+            if (feeling === "good") {
+                $("#good").show();
+                message2 = "That's good to hear."
+            } else if (feeling === "depressed") {
+                $("#elephant").show();
+                message2 = "I don't like that at all!";
+            } else if (feeling === "happy") {
+                $("#happy").show();
+                message2 = "Cause I'm happy! Blah blah blah blah blah.";
+            } else if (feeling === "awesome") {
+                $("#platypus").show();
+                message2 = "I feel fantastic! A+ for awesome!";
+            } else {
+                message2 = "I don't understand how you feel. Try one of these feelings:\ngood\ndepressed";
+            }
+            alert(message2);
+            setTimeout(function () { $("img").hide(); }, 3000);
+        }
+
+        $("#btnClick").click(function () {
+            var name = $("#firstName").val();
+            sayHi(name);
+        });
+
+    </script>
+</body>
+</html>
