@@ -44,7 +44,8 @@
     <script type="text/javascript">
         function sayHi(name) {
             var message = "Hi, " + name + ", how are you?";
-            var feeling = prompt(message);
+            $("#divGreeting").removeClass("hidden");
+            var feeling = "";
             var message2;
             if (feeling === "good") {
                 $("#good").show();
