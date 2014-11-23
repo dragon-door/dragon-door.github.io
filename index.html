@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-    <h1>Feelinator 8000.5</h1>
+    <h1>Feelinator 8000.6</h1>
     <input type="text" id="firstName" placeholder="Enter First Name" />
     <button id="btnClick">Say Hello</button>
     <br />
@@ -44,7 +44,8 @@
             var message = "Hi, " + name + ", how are you?";
             $("#divGreeting").removeClass("hidden");
             $("#lblMessage").text(message);
-            var feeling = "";
+        }
+        function FeelingResponse (feeling){
             var message2;
             if (feeling === "good") {
                 $("#good").show();
@@ -64,7 +65,6 @@
             alert(message2);
             setTimeout(function () { $("img").hide(); }, 3000);
         }
-
         $("#btnClick").click(function () {
             var name = $("#firstName").val();
             sayHi(name);
