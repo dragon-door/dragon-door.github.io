@@ -39,8 +39,12 @@
     <img id="good" src="good.jpg" style="display: none;" />
     <img id="elephant" src="depressed.jpg" style="display: none;" />
     <img id="platypus" src="awesome.jpg" style="display: none;" />
-    <iframe width="420" height="315" src="//www.youtube.com/embed/OQSNhk5ICTI?autoplay=1&amp;start=25" frameborder="0" allowfullscreen></iframe>
+    <div id="ecstatic">
+        <iframe width="420" height="315" src="//www.youtube.com/embed/OQSNhk5ICTI?autoplay=1&amp;start=25" frameborder="0" allowfullscreen></iframe>
+    </div>
     <script type="text/javascript">
+        var $video = $("#ecstatic > *");
+        $video.remove();
         function sayHi(name) {
             var message = "Hi, " + name + ", how are you?";
             $("#divGreeting").removeClass("hidden");
@@ -60,6 +64,9 @@
             } else if (feeling === "awesome") {
                 $("#platypus").show();
                 message2 = "I feel fantastic! A+ for awesome!";
+            } else if (feeling === "ecstatic") {
+                //TODO: Will add video here later.
+            }
             } else {
                 message2 = "I don't understand how you feel. Try one of these feelings:\ngood\ndepressed";
             }
