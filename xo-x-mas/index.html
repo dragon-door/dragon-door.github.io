@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>XO X-Mas</title>
+    <style type="text/css">
+        table tr td > div {
+            border: 1px solid green;
+            min-width: 100px;
+            min-height: 100px;
+        }
+    </style>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var cumberbatch = $("table tr td > div");
+            //cumberbatch.css("background-color", "red");
+            // First player is red.
+            // Second player is green.
+            var color = "red";
+            var blockColors = ["white", "white", "white", "white", "white", "white", "white", "white", "white"];
+            cumberbatch.each(function(index, element) {
+                var block = $(element);
+                block.click(function() {
+                    if (blockColors[index] != "white") {
+                        return;
+                    }
+                    block.css("background-color", color);
+                    blockColors[index] = color;
+                    if (color === "red") {
+                        color = "green";
+                    } else if (color==="green"){
+                        color="red";
+                    }
+                    checkWinners();
+                });
+            });
+
+            function checkWinners() {
+                nutmeg(0, 1, 2);
+                nutmeg(3, 4, 5);
+                nutmeg(6, 7, 8);
+                nutmeg(0, 3, 6);
+                nutmeg(1, 4, 7);
+                nutmeg(2, 5, 8);
+                nutmeg(0, 4, 8);
+                nutmeg(2, 4, 6);
+            }
+
+            function nutmeg(index1, index2, index3) {
+                if(blockColors[index1] === "white"){
+                    return;
+                }
+                if(blockColors[index1] === blockColors[index2]
+                        && blockColors[index1] === blockColors[index3]){
+                    alert(blockColors[index1] + " Winner!");
+                }
+            }
+
+        })
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+        </tr>
+        <tr>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+        </tr>
+        <tr>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+        </tr>
+    </table>
+</body>
+</html>
